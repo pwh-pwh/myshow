@@ -2,6 +2,10 @@
 
 > **“把好奇心写进代码里。”** — `Building things, breaking things, learning things.`
 
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fpwh-pwh%2Fmyshow&project-name=coderpwh-notebook&repository-name=coderpwh-notebook)
+[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/pwh-pwh/myshow)
+[![Deploy to Cloudflare](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https://github.com/pwh-pwh/myshow)
+
 这是为 **coderpwh** ([@pwh-pwh](https://github.com/pwh-pwh)) 定制开发的个人技术手账网站。
 整体采用 **70% 手账与编辑设计 + 30% 极简技术作品集** 的视觉理念，通过温暖米白纸张纹理、手绘 SVG 工程架构草图、和纸胶带便签、页边手写批注与经过验证的 GitHub 开源项目记录，呈现一本属于开发者的私人技术笔记本。
 
@@ -49,7 +53,17 @@ npm run preview
 
 ## 📦 部署方式
 
-本项目构建产物为纯静态资源（`dist/` 目录），可零成本部署至任意静态托管平台：
+本项目构建产物为纯静态资源（`dist/` 目录），支持点击下方按钮一键部署或手动托管：
+
+### 一键部署
+
+| 平台 | 一键部署入口 |
+| :--- | :--- |
+| **Vercel** | [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fpwh-pwh%2Fmyshow&project-name=coderpwh-notebook&repository-name=coderpwh-notebook) |
+| **Netlify** | [![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/pwh-pwh/myshow) |
+| **Cloudflare** | [![Deploy to Cloudflare](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https://github.com/pwh-pwh/myshow) |
+
+### 手动部署说明
 
 - **GitHub Pages**：推送到仓库后，使用 GitHub Actions 构建 `npm run build` 并发布 `dist` 目录（可作为 `pwh-pwh.github.io` 主页仓库直接部署）。
 - **Vercel / Cloudflare Pages / Netlify**：导入仓库，Build Command 填写 `npm run build`，Output Directory 填写 `dist` 即可一键上线。
