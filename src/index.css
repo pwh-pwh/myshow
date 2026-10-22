@@ -1,0 +1,246 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-paper-bg: #F7F4EC;
+  --color-paper-sheet: #FBF9F3;
+  --color-paper-warm: #EFEAD8;
+  --color-paper-kraft: #E5DBC5;
+  --color-paper-line: #DED7C6;
+  --color-ink-primary: #282923;
+  --color-ink-secondary: #4E5044;
+  --color-ink-muted: #7C7D71;
+  --color-accent-olive: #556B45;
+  --color-accent-brick: #B8523B;
+  --color-accent-kraft: #8B6B4A;
+  --color-note-yellow: #F8E8A0;
+  --color-note-blue: #DCEBF5;
+  --color-accent-blue-ink: #396482;
+
+  --font-hand-en: "Caveat", "Kalam", cursive;
+  --font-hand-zh: "Long Cang", "Ma Shan Zheng", "Kaiti SC", "STKaiti", cursive;
+  --font-body-zh: "Noto Sans SC", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+  --font-serif-zh: "Noto Serif SC", "Songti SC", "STSong", serif;
+  --font-mono: "JetBrains Mono", "Fira Code", ui-monospace, SFMono-Regular, monospace;
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: var(--color-paper-bg);
+  color: var(--color-ink-primary);
+  font-family: var(--font-body-zh);
+}
+
+/* ==================== 纸张底纹系统 (Grid / Dotted / Ruled / Plain) ==================== */
+.paper-surface-grid {
+  background-color: var(--color-paper-bg);
+  background-image:
+    linear-gradient(to right, rgba(140, 109, 79, 0.085) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(140, 109, 79, 0.085) 1px, transparent 1px),
+    radial-gradient(rgba(40, 41, 35, 0.035) 1px, transparent 0);
+  background-size: 28px 28px, 28px 28px, 14px 14px;
+}
+
+.paper-surface-dotted {
+  background-color: var(--color-paper-bg);
+  background-image: radial-gradient(rgba(105, 92, 74, 0.22) 1.15px, transparent 1.15px);
+  background-size: 22px 22px;
+}
+
+.paper-surface-ruled {
+  background-color: var(--color-paper-bg);
+  background-image: repeating-linear-gradient(
+    to bottom,
+    transparent 0px,
+    transparent 31px,
+    rgba(140, 109, 79, 0.13) 31px,
+    rgba(140, 109, 79, 0.13) 32px
+  );
+}
+
+.paper-surface-plain {
+  background-color: var(--color-paper-bg);
+  background-image: radial-gradient(ellipse at 20% 10%, rgba(229, 219, 197, 0.35), transparent 60%),
+    radial-gradient(ellipse at 80% 85%, rgba(215, 232, 243, 0.22), transparent 55%);
+}
+
+/* ==================== 手绘不规则边框 (Organic Sketch Borders) ==================== */
+.sketch-box {
+  border: 1.75px solid var(--color-ink-primary);
+  border-radius: 245px 16px 215px 16px / 16px 215px 16px 245px;
+}
+
+.sketch-box-soft {
+  border: 1.5px solid rgba(40, 41, 35, 0.78);
+  border-radius: 18px 220px 16px 210px / 215px 16px 205px 18px;
+}
+
+.sketch-pill {
+  border: 1.5px solid var(--color-ink-primary);
+  border-radius: 255px 24px 225px 24px / 24px 225px 24px 255px;
+}
+
+.sketch-card {
+  border: 1.75px solid rgba(40, 41, 35, 0.85);
+  border-radius: 12px 28px 14px 24px / 22px 12px 26px 14px;
+  box-shadow: 3px 4px 0px rgba(40, 41, 35, 0.09), 0 10px 24px -6px rgba(40, 41, 35, 0.07);
+  transition: transform 0.28s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.28s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.sketch-card:hover {
+  box-shadow: 5px 7px 0px rgba(40, 41, 35, 0.14), 0 16px 30px -8px rgba(40, 41, 35, 0.11);
+}
+
+/* ==================== 手账纸页横线底纹 (Notebook Lined Sheet) ==================== */
+.lined-notebook-sheet {
+  background-color: var(--color-paper-sheet);
+  background-image: repeating-linear-gradient(
+    to bottom,
+    transparent 0px,
+    transparent 35px,
+    rgba(140, 109, 79, 0.18) 35px,
+    rgba(140, 109, 79, 0.18) 36px
+  );
+}
+
+.grid-mini-sheet {
+  background-image:
+    linear-gradient(to right, rgba(57, 100, 130, 0.08) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(57, 100, 130, 0.08) 1px, transparent 1px);
+  background-size: 16px 16px;
+}
+
+/* ==================== 手撕和纸胶带 (Washi Masking Tape) ==================== */
+.washi-tape {
+  position: relative;
+  background: rgba(235, 222, 188, 0.76);
+  border-top: 1px dashed rgba(139, 107, 74, 0.32);
+  border-bottom: 1px dashed rgba(139, 107, 74, 0.32);
+  box-shadow: 0 1px 3px rgba(40, 41, 35, 0.08);
+  backdrop-filter: blur(1px);
+  clip-path: polygon(
+    2% 0%, 98% 0%, 100% 18%, 97% 36%, 100% 54%, 98% 72%, 100% 90%, 97% 100%,
+    3% 100%, 0% 84%, 3% 66%, 0% 48%, 2% 30%, 0% 12%
+  );
+}
+
+.washi-tape-olive {
+  background: rgba(132, 155, 114, 0.42);
+  border-top: 1px dashed rgba(85, 107, 69, 0.35);
+  border-bottom: 1px dashed rgba(85, 107, 69, 0.35);
+}
+
+.washi-tape-brick {
+  background: rgba(206, 120, 99, 0.38);
+  border-top: 1px dashed rgba(184, 82, 59, 0.35);
+  border-bottom: 1px dashed rgba(184, 82, 59, 0.35);
+}
+
+.washi-tape-blue {
+  background: rgba(173, 206, 228, 0.56);
+  border-top: 1px dashed rgba(57, 100, 130, 0.32);
+  border-bottom: 1px dashed rgba(57, 100, 130, 0.32);
+}
+
+/* ==================== 荧光马克笔与铅笔圈注 ==================== */
+.marker-highlight-yellow {
+  background: linear-gradient(104deg, rgba(248, 232, 160, 0) 0.9%, rgba(248, 232, 160, 0.85) 2.4%, rgba(248, 232, 160, 0.65) 5.8%, rgba(248, 232, 160, 0.45) 93%, rgba(248, 232, 160, 0.75) 96%, rgba(248, 232, 160, 0) 98%);
+  padding: 0.08em 0.32em;
+  border-radius: 6px 3px 8px 4px;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+
+.marker-highlight-blue {
+  background: linear-gradient(104deg, rgba(220, 235, 245, 0) 0.9%, rgba(220, 235, 245, 0.92) 2.4%, rgba(220, 235, 245, 0.72) 94%, rgba(220, 235, 245, 0) 98%);
+  padding: 0.08em 0.32em;
+  border-radius: 5px 8px 4px 6px;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+
+/* ==================== 钢笔线条绘制动画 ==================== */
+@keyframes drawStroke {
+  from {
+    stroke-dashoffset: 320;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes floatGentle {
+  0%, 100% {
+    transform: translateY(0px) rotate(var(--tw-rotate, 0deg));
+  }
+  50% {
+    transform: translateY(-3px) rotate(var(--tw-rotate, 0deg));
+  }
+}
+
+.ink-stroke-animate {
+  stroke-dasharray: 320;
+  stroke-dashoffset: 0;
+  animation: drawStroke 1.3s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+/* 导航悬停手绘下划线 */
+.nav-sketch-link .nav-underline-path {
+  stroke-dasharray: 120;
+  stroke-dashoffset: 120;
+  transition: stroke-dashoffset 0.32s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.nav-sketch-link:hover .nav-underline-path,
+.nav-sketch-link:focus-visible .nav-underline-path,
+.nav-sketch-link[data-active="true"] .nav-underline-path {
+  stroke-dashoffset: 0;
+}
+
+/* 视口进入轻微浮现动效 */
+.reveal-notebook {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.55s cubic-bezier(0.22, 1, 0.36, 1), transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.reveal-notebook.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* 铅笔涂鸦悬停微动 */
+.doodle-hover {
+  transition: transform 0.25s ease;
+}
+
+.doodle-hover:hover {
+  transform: scale(1.06) rotate(-3deg);
+}
+
+/* 无障碍键盘焦点样式 */
+:focus-visible {
+  outline: 2px dashed var(--color-accent-brick);
+  outline-offset: 4px;
+  border-radius: 4px;
+}
+
+/* 严格遵循 prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .reveal-notebook {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
